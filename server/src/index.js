@@ -21,12 +21,16 @@ mongo
 
 //require model files here
 require("./model/item");
+require("./model/task");
+require("./model/collection");
 
 app.use(cors());
 app.use(express.json());
 
 //tell app where routes are (file in routes)
 app.use(require("./routes/item-routes"));
+app.use(require("./routes/task-routes"));
+app.use(require("./routes/collection-routes"));
 
 app.listen(PORT, () => {
   console.log("server is running on port ", PORT);
