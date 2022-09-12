@@ -9,6 +9,16 @@ export const getTasks = async () => {
   });
   const res = await data.json();
   console.log(res);
+  return res;
+};
+
+export const getTasksbyColl = async (coll) => {
+  const data = await fetch(`${api}/${coll}`, {
+    method: "GET",
+  });
+  const res = await data.json();
+  console.log(res);
+  return res;
 };
 
 export const addTask = async (task) => {

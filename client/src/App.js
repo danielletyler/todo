@@ -5,7 +5,7 @@ import theme from "./theme";
 //components
 import Navbar from "./Components/Navbar";
 import Home from "./Components/Home";
-import Sidebar from "./Components/Sidebar";
+import Collections from "./Components/Collections/Collections";
 
 //fonts
 import "@fontsource/work-sans/400.css";
@@ -17,9 +17,9 @@ function App() {
       <ChakraProvider theme={theme}>
         <Navbar />
         <Flex bg="gray.900" color="white" pt={0.5} h="93vh">
-          <Sidebar />
           <Routes>
             <Route path="/" exact element={<Home />} />
+            <Route path="/collections" exact element={<Collections />} />
           </Routes>
         </Flex>
       </ChakraProvider>

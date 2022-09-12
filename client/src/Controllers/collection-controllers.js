@@ -9,6 +9,7 @@ export const getCollections = async () => {
   });
   const res = await data.json();
   console.log(res);
+  return res;
 };
 
 export const addCollection = async (coll) => {

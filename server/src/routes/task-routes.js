@@ -40,6 +40,18 @@ router.get("/tasks", (req, res) => {
     .catch((err) => console.log(err));
 });
 
+//getbyCollection
+router.get("/tasks/:coll", (req, res) => {
+  Task.find({ CollectionId: req.params.coll })
+    .then((task) => {
+      if (!task) {
+        res.status(404).json({ error: "list is empty" });
+      }
+      res.json({ task });
+    })
+    .catch((err) => console.log(err));
+});
+
 //update
 router.put("/tasks/:id", (req, res) => {
   const { desc, due_date, isComplete, CollectionId } = req.body;

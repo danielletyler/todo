@@ -12,9 +12,10 @@ router.get("/", (req, res) => {
 //create
 router.post("/collections", (req, res) => {
   console.log(req.body);
-  const { title } = req.body;
+  const { title, color } = req.body;
   const new_coll = new Collection({
     title,
+    color,
   });
 
   new_coll
@@ -39,12 +40,13 @@ router.get("/collections", (req, res) => {
 
 //update
 router.put("/collections/:id", (req, res) => {
-  const { title } = req.body;
+  const { title, color } = req.body;
   Collection.findByIdAndUpdate(
     req.params.id,
     {
       $set: {
         title: title,
+        color: color,
       },
     },
     { new: true }
