@@ -4,8 +4,9 @@ import theme from "./theme";
 
 //components
 import Navbar from "./Components/Navbar";
-import Home from "./Components/Home";
+import Home from "./Components/Overview/Home";
 import Collections from "./Components/Collections/Collections";
+import Collection from "./Components/Collections/Collection";
 
 //fonts
 import "@fontsource/work-sans/400.css";
@@ -20,6 +21,7 @@ function App() {
           <Routes>
             <Route path="/" exact element={<Home />} />
             <Route path="/collections" exact element={<Collections />} />
+            <Route path="/collection" exact element={<Collection />} />
           </Routes>
         </Flex>
       </ChakraProvider>

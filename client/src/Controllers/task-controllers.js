@@ -8,7 +8,6 @@ export const getTasks = async () => {
     method: "GET",
   });
   const res = await data.json();
-  console.log(res);
   return res;
 };
 
@@ -17,7 +16,6 @@ export const getTasksbyColl = async (coll) => {
     method: "GET",
   });
   const res = await data.json();
-  console.log(res);
   return res;
 };
 

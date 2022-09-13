@@ -8,7 +8,6 @@ export const getCollections = async () => {
     method: "GET",
   });
   const res = await data.json();
-  console.log(res);
   return res;
 };
 

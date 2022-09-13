@@ -20,7 +20,7 @@ import {
   addCollection,
   getCollections,
 } from "../../Controllers/collection-controllers";
-import Collection from "./Collection";
+import CollectionIcon from "./CollectionIcon";
 import { SimpleGrid } from "@chakra-ui/react";
 
 //Home screen with buttons to demonstrate each api call
@@ -34,7 +34,11 @@ const Collections = () => {
       title: name,
       color: color,
     };
-    addCollection(newColl);
+    addCollection(newColl).then(() => {
+      getCollections().then((res) => {
+        setCollections(res.coll);
+      });
+    });
     setName("");
     setColor("");
   };
@@ -50,7 +54,7 @@ const Collections = () => {
       <Box w="50%">
         <Flex mt={12} justify="center">
           <Heading>Collections</Heading>
-          <Box align="center" my={2} ml={4}>
+          <Box align="center" mt={2} mb={8} ml={4}>
             <Popover>
               <PopoverTrigger>
                 <Button size="sm" variant="outline">
@@ -65,6 +69,7 @@ const Collections = () => {
                   <PopoverBody>
                     <Input
                       placeholder="Name your collection"
+                      value={name}
                       onChange={(e) => setName(e.target.value)}
                     />
                     <Text m={2}>Collection color:</Text>
@@ -94,16 +99,16 @@ const Collections = () => {
                         border={color === "#00fff2" ? "2px solid white" : ""}
                       ></Button>
                       <Button
-                        onClick={() => setColor("#6200ff")}
+                        onClick={() => setColor("#b858fc")}
                         _hover={{ border: "2px solid white" }}
-                        bg="#6200ff"
-                        border={color === "#6200ff" ? "2px solid white" : ""}
+                        bg="#b858fc"
+                        border={color === "#b858fc" ? "2px solid white" : ""}
                       ></Button>
                       <Button
-                        onClick={() => setColor("#f000ff")}
+                        onClick={() => setColor("#fc58de")}
                         _hover={{ border: "2px solid white" }}
-                        bg="#f000ff"
-                        border={color === "#f000ff" ? "2px solid white" : ""}
+                        bg="#fc58de"
+                        border={color === "#fc58de" ? "2px solid white" : ""}
                       ></Button>
                     </Flex>
                   </PopoverBody>
@@ -121,14 +126,11 @@ const Collections = () => {
             </Popover>
           </Box>
         </Flex>
-
-        {collections.map((coll) => {
-          return (
-            <Box border="1px solid white">
-              <Collection coll={coll} />
-            </Box>
-          );
-        })}
+        <SimpleGrid columns={3}>
+          {collections.map((coll) => {
+            return <CollectionIcon key={coll._id} coll={coll} />;
+          })}
+        </SimpleGrid>
       </Box>
     </Flex>
   );
