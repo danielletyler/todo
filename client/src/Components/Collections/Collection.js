@@ -207,7 +207,10 @@ const Collection = () => {
                         <Text>{task.desc}</Text>
                         <Text fontSize="14px">
                           due {date.toLocaleDateString()} @{" "}
-                          {date.toLocaleTimeString()}{" "}
+                          {date.toLocaleTimeString("en-US", {
+                            hour: "numeric",
+                            minute: "2-digit",
+                          })}
                         </Text>
                       </Box>
                     </Flex>
@@ -255,7 +258,10 @@ const Collection = () => {
                         <Text>{task.desc}</Text>
                         <Text fontSize="14px">
                           due {date.toLocaleDateString()} @{" "}
-                          {date.toLocaleTimeString()}{" "}
+                          {date.toLocaleTimeString("en-US", {
+                            hour: "numeric",
+                            minute: "2-digit",
+                          })}
                         </Text>
                       </Box>
                     </Flex>
