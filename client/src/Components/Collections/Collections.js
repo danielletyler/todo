@@ -50,9 +50,9 @@ const Collections = () => {
   }, []);
 
   return (
-    <Flex w="100%" justify="center" overflowY="scroll">
-      <Box w="50%">
-        <Flex mt={12} justify="center">
+    <Flex justify="center" w="100%">
+      <Box w={["100%", "100%", "100%", "80%", "50%"]}>
+        <Flex mt={12} justify={["center"]}>
           <Heading>Collections</Heading>
           <Box align="center" mt={2} mb={8} ml={4}>
             <Popover>
@@ -126,7 +126,7 @@ const Collections = () => {
             </Popover>
           </Box>
         </Flex>
-        <SimpleGrid columns={3}>
+        <SimpleGrid columns={[1, 2, 3]}>
           {collections.map((coll) => {
             return <CollectionIcon key={coll._id} coll={coll} />;
           })}

@@ -13,9 +13,14 @@ const Home = () => {
   }, []);
 
   return (
-    <Flex w="100%" justify="center" overflowY="scroll">
-      <Box mt={12} w="50%">
-        <Flex justify="space-between" align="center">
+    <Flex w="100%" justify="center">
+      <Box mt={12} w={["100%", "100%", "80%", "50%"]} p={[4, 8, null]}>
+        <Flex
+          justify="space-between"
+          align={["start", "start", "center"]}
+          flexDir={["column-reverse", "column-reverse", "row"]}
+          rowGap={2}
+        >
           <Box>
             <Heading>Daily Overview</Heading>
             <Text pt={2}>Tasks Due Today:</Text>

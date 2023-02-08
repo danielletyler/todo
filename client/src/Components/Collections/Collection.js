@@ -99,7 +99,12 @@ const Collection = () => {
 
   return (
     <Flex w="100%" justify="center">
-      <Box w="40%" align="center" mt={12}>
+      <Box
+        w={["100%", "100%", "80%", "60%", "40%"]}
+        align="center"
+        mt={12}
+        px={[4, 4, null]}
+      >
         <Flex justify="space-between">
           <Flex gridColumnGap={8} alignItems="center">
             <Button

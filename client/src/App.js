@@ -17,7 +17,7 @@ function App() {
     <BrowserRouter>
       <ChakraProvider theme={theme}>
         <Navbar />
-        <Flex bg="gray.900" color="white" pt={0.5} h="93vh">
+        <Flex bg="gray.900" color="white" pt={0.5} minH="95vh">
           <Routes>
             <Route path="/" exact element={<Home />} />
             <Route path="/collections" exact element={<Collections />} />
